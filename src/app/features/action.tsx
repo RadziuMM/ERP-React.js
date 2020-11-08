@@ -3,12 +3,12 @@ import { createSlice } from '@reduxjs/toolkit';
 export const erpSlice = createSlice({
   name: 'erp',
   initialState: {
-    token:false,
+    token:0,
     name:'',
   },
   reducers: {
     setToken: state => {
-      state.token = true;
+      state.token = 1;
     },
     setName: (state , action) => {
       state.name = action.payload;

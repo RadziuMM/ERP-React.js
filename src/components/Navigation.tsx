@@ -1,6 +1,6 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
-import Token from '../app/features/actions/getToken'
+import Token from "../app/features/actions/getToken";
 
 function Routes() {
   let history = useHistory();
@@ -38,10 +38,24 @@ function Routes() {
 }
 
 class Navigation extends React.Component {
-render() {
+  render() {
+    const checkToken = () => {
+      if (document.getElementById("xD")?.innerHTML === undefined) {
+        setTimeout(()=>{checkToken()},100)
+      } else {
+        if(Number(document.getElementById("xD")?.innerHTML) === 0){
+          console.log('xd')
+          console.log('token test: failed!')
+          window.location.href = "/"; 
+        } else { console.log('token test: passed!')}
+      }
+    };
+    checkToken();
     return (
       <nav className="App">
-        <Token/>
+        <span id="xD">
+          <Token />
+        </span>
         <Routes />
       </nav>
     );
