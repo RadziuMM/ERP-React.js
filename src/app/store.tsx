@@ -1,8 +1,8 @@
 import { configureStore } from '@reduxjs/toolkit';
-import movieReducer from './features/storeO';
+import erpReducer from './features/action';
 
 export default configureStore({
   reducer: {
-    movies: movieReducer,
+    erp: erpReducer,
   },
 });

@@ -5,8 +5,12 @@ import { Route, BrowserRouter as Router } from 'react-router-dom'
 import { Provider } from 'react-redux';
 import store from './app/store'
 import App from './App';
-import login from './views/LoginPage';
-import main from './views/MainPage';
+import Login from './views/LoginPage';
+import Main from './views/MainPage';
+import Employes from './views/Employers';
+import Files from './views/Files';
+import Events from './views/Events';
+import Settings from './views/Settings';
 
 
 ReactDOM.render(
@@ -14,8 +18,12 @@ ReactDOM.render(
     <Provider store={store}>
     <Router>
       <Route exact path="/" component={App} />  
-      <Route path="/login" component={login} />  
-      <Route path="/main" component={main} />  
+      <Route path="/Login" component={Login} />  
+      <Route path="/Main" component={Main} />  
+      <Route path="/Employes" component={Employes} />  
+      <Route path="/Files" component={Files} />  
+      <Route path="/Events" component={Events} />  
+      <Route path="/Settings" component={Settings} />  
     </Router>
     </Provider>
   </React.StrictMode>,
