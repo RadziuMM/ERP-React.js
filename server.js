@@ -12,7 +12,7 @@ app.use((req, res, next) => {
   next();
 });
 
-const { checkAcc, addAcc , getEmp, addEmp } = require("./routes/index");
+const { checkAcc, addAcc , getEmp, addEmp, editEmp ,deleteEmp} = require("./routes/index");
 
 app.use(express.static(`${__dirname}/build`));
 app.get("/", (_req, res) => {
@@ -23,6 +23,8 @@ app.post('/api/acc/check', checkAcc);
 app.post('/api/acc/add', addAcc);
 app.post('/api/emp/get', getEmp);
 app.post('/api/emp/add', addEmp);
+app.post('/api/emp/edit', editEmp);
+app.post('/api/emp/delete', deleteEmp);
 
 app.listen(port);
 console.log("Server started at", port);

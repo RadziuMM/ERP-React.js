@@ -5,6 +5,7 @@ export const erpSlice = createSlice({
   initialState: {
     token:0,
     name:'',
+    id:0
   },
   reducers: {
     setToken: state => {
@@ -13,11 +14,15 @@ export const erpSlice = createSlice({
     setName: (state , action) => {
       state.name = action.payload;
     },
+    setID:(state , action)=>{
+      state.id = action.payload;
+    }
   },
 });
 
-export const { setToken,setName } = erpSlice.actions;
+export const { setToken,setName,setID } = erpSlice.actions;
 export const name = (state: any) => state.erp.name;
 export const token = (state: {erp:any}) => state.erp.token;
+export const id = (state: {erp:any}) => state.erp.id;
 
 export default erpSlice.reducer;

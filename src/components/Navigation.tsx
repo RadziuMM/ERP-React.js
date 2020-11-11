@@ -40,20 +40,18 @@ function Routes() {
 class Navigation extends React.Component {
   render() {
     const checkToken = () => {
-      if (document.getElementById("xD")?.innerHTML === undefined) {
+      if (document.getElementById("token")?.innerHTML === undefined) {
         setTimeout(()=>{checkToken()},100)
       } else {
-        if(Number(document.getElementById("xD")?.innerHTML) === 0){
-          console.log('xd')
-          console.log('token test: failed!')
+        if(Number(document.getElementById("token")?.innerHTML) === 0){
           window.location.href = "/"; 
-        } else { console.log('token test: passed!')}
+        }
       }
     };
     checkToken();
     return (
       <nav className="App">
-        <span id="xD">
+        <span id="token">
           <Token />
         </span>
         <Routes />

@@ -1,7 +1,7 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { setToken, setName } from "../action";
+import { setToken, setName,setID } from "../action";
 const axios = require("axios");
 
 export default function Log() {
@@ -25,11 +25,11 @@ export default function Log() {
               password: `${password}`,
             })
             .then((res: { statusCode: any; data: any }) => {
-              console.log(`statusCode: ${res.statusCode}`);
               return res.data;
             })
             .then((res: string) => {
-              if (Number(JSON.parse(res)) === 1) {
+              if (Number(JSON.parse(res[0])) === 1) {
+                dispatch(setID(Number(JSON.parse(res[1]))))
                 dispatch(setToken());
                 dispatch(
                   setName(

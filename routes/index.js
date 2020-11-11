@@ -33,7 +33,7 @@ module.exports = {
             passwordHash.verify(req.body.password, storage[i].password)
           ) {
             console.log(`${req.body.name} has logged`);
-            res.send("1");
+            res.send(["1",`${i}`]);
           }
           if (i === storage.length - 1) {
             try {
@@ -102,7 +102,7 @@ module.exports = {
           console.log(null, err);
         } else {
           employes = JSON.parse(JSON.stringify(res));
-          console.log(`employes list feched by acc ${req.body.acc_id}`)
+          console.log(`employes list feched by account id:${req.body.acc_id}`);
           resp.send(employes);
         }
       }
@@ -111,15 +111,61 @@ module.exports = {
   addEmp: (req, resp) => {
     db.query(
       "INSERT INTO employes(acc_id,firstName,lastName,jobTitle,salaryPH,workedH,employedSince,exist) VALUES(?,?,?,?,?,?,?,1)",
-      [req.body.acc_id,req.body.firstName,req.body.lastName,req.body.jobTitle,req.body.salaryPH,req.body.workedH,req.body.employedSince],
+      [
+        req.body.acc_id,
+        req.body.firstName,
+        req.body.lastName,
+        req.body.jobTitle,
+        req.body.salaryPH,
+        req.body.workedH,
+        req.body.employedSince,
+      ],
       function (err, res) {
         if (err) {
           console.log(null, err);
         } else {
-          console.log(`User ${req.body.acc_id} add new employer to db!`)
+          console.log(`User id:${req.body.acc_id} add new employer to db!`);
           resp.send("1");
         }
       }
     );
   },
+  editEmp: (req, resp) => {
+    db.query(
+      "UPDATE employes SET firstName = ?,lastName = ?,jobTitle = ?,salaryPH = ?,workedH = ?,employedSince = ?,exist = 1 WHERE id = ?",
+      [
+        req.body.firstName,
+        req.body.lastName,
+        req.body.jobTitle,
+        req.body.salaryPH,
+        req.body.workedH,
+        req.body.employedSince,
+        req.body.id,
+      ],
+      function (err, res) {
+        if (err) {
+          console.log(null, err);
+        } else {
+          console.log(`Employee updated in account id:${req.body.acc_id}!`)
+          resp.send("1");
+        }
+      }
+    );
+  },
+  deleteEmp:(req,resp) =>{
+    db.query(
+      "UPDATE employes SET exist = 0 WHERE id = ?",
+      [
+        req.body.id,
+      ],
+      function (err, res) {
+        if (err) {
+          console.log(null, err);
+        } else {
+          console.log(`Employee removed in account id:${req.body.acc_id}!`)
+          resp.send("1");
+        }
+      }
+    );
+  }
 };
