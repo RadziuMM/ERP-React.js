@@ -21,9 +21,14 @@ class Employes extends React.Component {
             console.error(error);
           });
     }
-    const edit=(arg0:any,arg1:any)=>{
+    const edit=(arg0:any,arg1:any,arg2:any[])=>{
       if (isEdit[arg0]===false||isEdit[arg0]===undefined){
         isEdit[arg0]=true;
+        arg2.forEach(element => {
+          if(element !== arg0){
+            (document.getElementById(`edit${element}`)! as HTMLButtonElement).disabled = true ;
+          }
+        });
         (document.getElementById(`fn${arg0}`)! as HTMLTableCellElement).innerHTML = `<input id="fni${arg0}" value="${(document.getElementById(`fn${arg0}`)! as HTMLTableCellElement).innerHTML}" />`;
         (document.getElementById(`ln${arg0}`)! as HTMLTableCellElement).innerHTML = `<input id="lni${arg0}" value="${(document.getElementById(`ln${arg0}`)! as HTMLTableCellElement).innerHTML}" />`;
         (document.getElementById(`jt${arg0}`)! as HTMLTableCellElement).innerHTML = `<input id="jti${arg0}" value="${(document.getElementById(`jt${arg0}`)! as HTMLTableCellElement).innerHTML}" />`;
@@ -31,6 +36,9 @@ class Employes extends React.Component {
         (document.getElementById(`wh${arg0}`)! as HTMLTableCellElement).innerHTML = `<input id="whi${arg0}" value="${(document.getElementById(`wh${arg0}`)! as HTMLTableCellElement).innerHTML}" />`;
         (document.getElementById(`es${arg0}`)! as HTMLTableCellElement).innerHTML = `<input id="esi${arg0}" value="${(document.getElementById(`es${arg0}`)! as HTMLTableCellElement).innerHTML}" />`;
       }else{
+        arg2.forEach(element => {
+            (document.getElementById(`edit${element}`)! as HTMLButtonElement).disabled = false ;
+        });
         isEdit[arg0]=false;
         const args: any =[];
         args.push((document.getElementById(`fni${arg0}`)! as HTMLInputElement).value)
@@ -141,7 +149,7 @@ class Employes extends React.Component {
       tab.appendChild(eTable);
       deletes.forEach(element=>{
         (document.getElementById(`delete${element}`)! as HTMLButtonElement).onclick = () => {delEmp(element,id)}
-        (document.getElementById(`edit${element}`)! as HTMLButtonElement).onclick = () => {edit(element,id)}
+        (document.getElementById(`edit${element}`)! as HTMLButtonElement).onclick = () => {edit(element,id,deletes)}
       })
       };
       const setID = () => {
