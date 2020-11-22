@@ -7,6 +7,7 @@ class Events extends React.Component {
       <div className="App">
         <Navigation/>
             Events
+            Eventname/time/owner/partipitans
         </div>
       );
   }  

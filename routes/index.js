@@ -3,6 +3,7 @@ const passwordHash = require("password-hash");
 
 let storage = [];
 let employes = [];
+let events = [];
 
 const db = mysql.createConnection({
   host: "uoa25ublaow4obx5.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
@@ -102,7 +103,7 @@ module.exports = {
           console.log(null, err);
         } else {
           employes = JSON.parse(JSON.stringify(res));
-          console.log(`employes list feched by account id:${req.body.acc_id}`);
+          console.log(`Employes list feched by account id:${req.body.acc_id}`);
           resp.send(employes);
         }
       }
@@ -167,5 +168,80 @@ module.exports = {
         }
       }
     );
-  }
+  },
+  addEvent:(req,resp) =>{
+    db.query(
+      "INSERT INTO events(acc_id,name,time_from,time_to,owner_id,members_ids,exist) VALUES(?,?,?,?,?,?,1)",
+      [
+        req.body.acc_id,
+        req.body.name,
+        req.body.time_from,
+        req.body.time_to,
+        req.body.owner_id,
+        req.body.members_ids,
+      ],
+      function (err, res) {
+        if (err) {
+          console.log(null, err);
+        } else {
+          console.log(`New event created in account id:${req.body.acc_id}!`)
+          resp.send("1");
+        }
+      }
+    );
+  },
+  getEvent:(req,resp) =>{
+    db.query(
+      "SELECT * FROM events where `exist` = 1 and acc_id = ?",
+      [
+        req.body.acc_id,
+      ],
+      function (err, res) {
+        if (err) {
+          console.log(null, err);
+        } else {
+          events = JSON.parse(JSON.stringify(res));
+          console.log(`Events list feched by account id:${req.body.acc_id}`);
+          resp.send(events);
+        }
+      }
+    );
+  },
+  editEvent: (req, resp) => {
+    db.query(
+      "UPDATE events SET name = ?,time_from = ?,time_to = ?,owner_id = ?,members_ids = ? WHERE id = ?",
+      [
+        req.body.name,
+        req.body.time_from,
+        req.body.time_to,
+        req.body.owner_id,
+        req.body.members_ids,
+        req.body.id,
+      ],
+      function (err, res) {
+        if (err) {
+          console.log(null, err);
+        } else {
+          console.log(`Event updated in account id:${req.body.acc_id}!`)
+          resp.send("1");
+        }
+      }
+    );
+  },
+  deleteEvent:(req,resp) =>{
+    db.query(
+      "UPDATE events SET exist = 0 WHERE id = ?",
+      [
+        req.body.id,
+      ],
+      function (err, res) {
+        if (err) {
+          console.log(null, err);
+        } else {
+          console.log(`Event removed in account id:${req.body.acc_id}!`)
+          resp.send("1");
+        }
+      }
+    );
+  },
 };
