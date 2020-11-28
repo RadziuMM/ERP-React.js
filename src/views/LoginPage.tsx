@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import Log from "../app/features/actions/LogIn";
+import "../styles/LoginPage.scss";
 const axios = require("axios");
 
 const singUp = () => {
@@ -35,21 +36,38 @@ const singUp = () => {
 class login extends React.Component {
   render() {
     return (
-      <div className="App">
-        <Link to="/">Home</Link>
-        <div> LOGIN </div>
-        <Log />
-        <div>Sing up</div>
-        <input id="sName" />
-        <input id="sPass0" />
-        <input id="sPass1" />
-        <button
-          onClick={() => {
-            singUp();
-          }}
-        >
-          Sing Up
-        </button>
+      <div className="app">
+        <Link className="link" to="/">
+          Back to HomePage
+        </Link>
+        <div>
+          <div>
+            <div>
+              LOGIN
+              <Log />
+            </div>
+          </div>
+        </div>
+        <div>
+          <div>
+            <div>
+              <div>SING UP</div>
+              <input placeholder="login" id="sName" />
+              <br />
+              <input placeholder="password" id="sPass0" />
+              <br />
+              <input placeholder="reapeat password" id="sPass1" />
+              <br />
+              <button
+                onClick={() => {
+                  singUp();
+                }}
+              >
+                Sing Up
+              </button>
+            </div>
+          </div>
+        </div>
       </div>
     );
   }

@@ -9,8 +9,8 @@ export default function Log() {
   let history = useHistory();
   return (
     <div>
-      <input id="lName"></input>
-      <input id="lPassword"></input>
+      <input placeholder="login" id="lName"></input><br/>
+      <input placeholder="password" id="lPassword"></input><br/>
       <button
         onClick={() => {
           const name = (document.getElementById("lName") as HTMLInputElement)
@@ -46,7 +46,7 @@ export default function Log() {
             });
         }}
       >
-        x
+        Login
       </button>
     </div>
   );
