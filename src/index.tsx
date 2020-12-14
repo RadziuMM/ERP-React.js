@@ -8,7 +8,6 @@ import App from './App';
 import Login from './views/LoginPage';
 import Main from './views/MainPage';
 import Employes from './views/Employers';
-import Files from './views/Files';
 import Events from './views/Events';
 import Settings from './views/Settings';
 
@@ -21,7 +20,6 @@ ReactDOM.render(
       <Route path="/Login" component={Login} />  
       <Route path="/Main" component={Main} />  
       <Route path="/Employes" component={Employes} />  
-      <Route path="/Files" component={Files} />  
       <Route path="/Events" component={Events} />  
       <Route path="/Settings" component={Settings} />  
     </Router>

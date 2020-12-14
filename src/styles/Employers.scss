@@ -1,0 +1,19 @@
+#emp_table{
+    border: none;
+    margin: 0;
+    text-align: center;
+    width: auto;
+    height: auto;
+    transform: translate(0);
+    display: flex;
+    justify-content: center;
+    &:hover{
+        transform: none;
+        box-shadow: none;
+    }
+}
+button:disabled,
+button[disabled]{
+  border: none;
+  color: #666666;
+}

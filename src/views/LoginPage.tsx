@@ -22,14 +22,16 @@ const singUp = () => {
         if (Number(JSON.parse(res)) === 1) {
           alert("Account successful created!");
         } else {
-          alert("That name exist!Find another one!");
+          const mess = (document.getElementById("message1") as HTMLDivElement);
+          mess.innerHTML= "That name exist!Find another one!"
         }
       })
       .catch((error: any) => {
         console.error(error);
       });
   } else {
-    alert("passwords are difrent");
+    const mess = (document.getElementById("message1") as HTMLDivElement);
+    mess.innerHTML= "Passwords are diffrent!"
   }
 };
 
@@ -58,6 +60,7 @@ class login extends React.Component {
               <br />
               <input placeholder="reapeat password" id="sPass1" />
               <br />
+              <div id="message1"></div>
               <button
                 onClick={() => {
                   singUp();

@@ -1,6 +1,7 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
 import Token from "../app/features/actions/getToken";
+import '../styles/Nav.scss';
 
 function Routes() {
   let history = useHistory();
@@ -8,10 +9,9 @@ function Routes() {
   function handleClick(arg: Number) {
     if (arg === 0) history.push("/Main");
     if (arg === 1) history.push("/Employes");
-    if (arg === 2) history.push("/Files");
-    if (arg === 3) history.push("/Events");
-    if (arg === 4) history.push("/Settings");
-    if (arg === 5) history.push("/");
+    if (arg === 2) history.push("/Events");
+    if (arg === 3) history.push("/Settings");
+    if (arg === 4) history.push("/");
   }
   return (
     <ul>
@@ -22,15 +22,12 @@ function Routes() {
         Employers
       </button>
       <button type="button" onClick={() => handleClick(2)}>
-        Files
-      </button>
-      <button type="button" onClick={() => handleClick(3)}>
         Events
       </button>
-      <button type="button" onClick={() => handleClick(4)}>
+      <button type="button" onClick={() => handleClick(3)}>
         Settings
       </button>
-      <button type="button" onClick={() => handleClick(5)}>
+      <button type="button" onClick={() => handleClick(4)}>
         Log out
       </button>
     </ul>
@@ -50,7 +47,7 @@ class Navigation extends React.Component {
     };
     checkToken();
     return (
-      <nav className="App">
+      <nav className="Navigation">
         <span id="token">
           <Token />
         </span>

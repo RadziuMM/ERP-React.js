@@ -1,6 +1,8 @@
 import React from "react";
 import Navigation from "../components/Navigation";
 import ID from "../app/features/actions/getID";
+import "../styles/Events.scss";
+
 
 const axios = require("axios");
 
@@ -262,7 +264,6 @@ class Events extends React.Component {
         <span id="idE_container">
           <ID />
         </span>
-        /Events/
         <div id="Events"></div>
         <div id="ownersBlock"></div>
       </div>

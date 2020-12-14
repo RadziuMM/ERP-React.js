@@ -2,6 +2,8 @@ import React from "react";
 import jsxToString from "jsx-to-string";
 import Navigation from "../components/Navigation";
 import ID from "../app/features/actions/getID";
+import "../styles/Employers.scss";
+
 
 const axios = require("axios");
 
@@ -256,7 +258,6 @@ class Employes extends React.Component {
     return (
       <div className="App">
         <Navigation />
-        Employes
         <span id="id_container">
           <ID />
         </span>

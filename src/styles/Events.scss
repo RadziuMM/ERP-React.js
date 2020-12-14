@@ -1,0 +1,25 @@
+@mixin mute {
+    border: none;
+    margin: 0;
+    text-align: center;
+    width: auto;
+    height: auto;
+    transform: translate(0);
+    &:hover{
+        transform: none;
+        box-shadow: none;
+    }
+}
+#Events{
+    @include mute;
+    display: flex;
+    justify-content: center;
+}
+#ownersBlock{
+    @include mute;
+}
+button:disabled,
+button[disabled]{
+  border: none;
+  color: #666666;
+}

@@ -11,6 +11,7 @@ export default function Log() {
     <div>
       <input placeholder="login" id="lName"></input><br/>
       <input placeholder="password" id="lPassword"></input><br/>
+      <div id="message"></div>
       <button
         onClick={() => {
           const name = (document.getElementById("lName") as HTMLInputElement)
@@ -28,6 +29,7 @@ export default function Log() {
               return res.data;
             })
             .then((res: string) => {
+              try{
               if (Number(JSON.parse(res[0])) === 1) {
                 dispatch(setID(Number(JSON.parse(res[1]))))
                 dispatch(setToken());
@@ -37,8 +39,9 @@ export default function Log() {
                   )
                 );
                 history.push("/Main");
-              } else {
-                alert("bad name or password!");
+              }}catch{
+                const mess = (document.getElementById("message") as HTMLDivElement);
+                mess.innerHTML= "Bad name or password!"
               }
             })
             .catch((error: any) => {
