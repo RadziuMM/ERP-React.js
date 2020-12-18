@@ -34,21 +34,36 @@ module.exports = {
             passwordHash.verify(req.body.password, storage[i].password)
           ) {
             console.log(`${req.body.name} has logged`);
-            res.send(["1",`${i}`]);
+            res.send(["1",`${storage[i].id}`]);
+            storage = [];
           }
           if (i === storage.length - 1) {
             try {
               res.send("0");
+              storage = [];
             } catch {}
           }
         } catch {
           try {
             res.send("0");
             console.log("db is empty");
+            storage = [];
           } catch {}
         }
       }
-    });
+    }).then(
+      fetchAcc = new Promise(function (resolve, reject) {
+        db.query("SELECT * FROM accounts WHERE exist = 1", function (err, res) {
+          if (err) {
+            console.log(null, err);
+            resolve();
+          } else {
+            storage = JSON.parse(JSON.stringify(res));
+            resolve();
+          }
+        });
+      })
+    );
   },
   addAcc: (req, resp) => {
     fetchAcc
@@ -93,6 +108,57 @@ module.exports = {
           resp.send("0");
         }
       });
+  },
+  editAcc: (req, resp) => {
+    db.query(
+      "UPDATE accounts SET name = ?,exist = 1 WHERE id = ?",
+      [
+        req.body.name, 
+        req.body.acc_id,
+      ],
+      function (err, res) {
+        if (err) {
+          console.log(null, err);
+        } else {
+          console.log(`Account updated id:${req.body.acc_id}!`)
+          resp.send("1");
+        }
+      }
+    );
+  },
+  editPassAcc: (req, resp) => {
+    const hashedPassword = passwordHash.generate(req.body.password);
+    db.query(
+      "UPDATE accounts SET password = ?,exist = 1 WHERE id = ?",
+      [
+        hashedPassword,
+        req.body.acc_id,
+      ],
+      function (err, res) {
+        if (err) {
+          console.log(null, err);
+        } else {
+          console.log(`Account updated id:${req.body.acc_id}!`)
+          resp.send("1");
+        }
+      }
+    );
+  },
+  deleteAcc:(req,resp) =>{
+    db.query(
+      "UPDATE accounts SET exist = 0 WHERE id = ?",
+      [
+        req.body.acc_id,
+      ],
+      function (err, res) {
+        if (err) {
+          console.log(null, err);
+        } else {
+          console.log(`Account removed id:${req.body.acc_id}!`)
+          resp.send("1");
+        }
+      }
+    );
   },
   getEmp: (req, resp) => {
     db.query(
