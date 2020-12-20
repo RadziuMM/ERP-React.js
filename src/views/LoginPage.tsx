@@ -60,7 +60,7 @@ class login extends React.Component {
               <br />
               <input placeholder="reapeat password" id="sPass1" />
               <br />
-              <div id="message1"></div>
+              <div id="message1" className="mess"></div>
               <button
                 onClick={() => {
                   singUp();

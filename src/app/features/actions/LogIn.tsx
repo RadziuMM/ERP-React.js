@@ -11,7 +11,7 @@ export default function Log() {
     <div>
       <input placeholder="login" id="lName"></input><br/>
       <input placeholder="password" id="lPassword"></input><br/>
-      <div id="message"></div>
+      <div id="message" className="mess"></div>
       <button
         onClick={() => {
           const name = (document.getElementById("lName") as HTMLInputElement)
