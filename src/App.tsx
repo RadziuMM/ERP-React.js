@@ -8,7 +8,7 @@ function App() {
 
   return (
     <div className="App">
-      <img src={Img} alt="" />
+      <img src={Img} alt="" className="bg"/>
       <div>
         <img className="icon" src={cloud} alt=""/>
         <div>
