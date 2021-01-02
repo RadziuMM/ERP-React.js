@@ -1,0 +1,42 @@
+$_1color: #fb8122;
+$_2color: #fa9141;
+@mixin font {
+  color: $_1color;
+  text-align: center;
+}
+@mixin sFont {
+  color: $_1color;
+  font-size: 1.8vh;
+  @media (min-width: 1024px) {
+    font-size: 3vh;
+  }
+}
+@mixin lFont {
+  color: $_1color;
+  font-size: 30px;
+  font-weight: bold;
+}
+
+@mixin border {
+  text-decoration: none;
+  padding: 4px;
+  border: solid 1px $_1color;
+  border-radius: 5px;
+  &:hover {
+    color:$_2color;
+    border: solid 1px $_2color;
+  }
+}
+@mixin button {
+  @include border;
+  background: transparent;
+  padding-left: 10%;
+  padding-right: 10%;
+  transition: 1s;
+  outline: none;
+  cursor: pointer;
+  &:hover {
+    background:$_2color;
+    color: white;
+  }
+}
