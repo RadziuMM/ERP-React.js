@@ -10,7 +10,7 @@ export default function Log() {
   return (
     <div>
       <input placeholder="login" id="lName"></input><br/>
-      <input placeholder="password" id="lPassword"></input><br/>
+      <input placeholder="password" type="password" id="lPassword"></input><br/>
       <div id="message" className="mess"></div>
       <button
         onClick={() => {

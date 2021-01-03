@@ -56,9 +56,9 @@ class login extends React.Component {
               <div>SING UP</div>
               <input placeholder="login" id="sName" />
               <br />
-              <input placeholder="password" id="sPass0" />
+              <input placeholder="password" type="password" id="sPass0" />
               <br />
-              <input placeholder="reapeat password" id="sPass1" />
+              <input placeholder="reapeat password" type="password" id="sPass1" />
               <br />
               <div id="message1" className="mess"></div>
               <button

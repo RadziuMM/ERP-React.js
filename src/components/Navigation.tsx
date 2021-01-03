@@ -1,7 +1,7 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
 import Token from "../app/features/actions/getToken";
-import '../styles/Nav.scss';
+import "../styles/Nav.scss";
 
 function Routes() {
   let history = useHistory();
@@ -15,21 +15,31 @@ function Routes() {
   }
   return (
     <ul>
-      <button type="button" onClick={() => handleClick(0)}>
-        Home
-      </button>
-      <button type="button" onClick={() => handleClick(1)}>
-        Employers
-      </button>
-      <button type="button" onClick={() => handleClick(2)}>
-        Events
-      </button>
-      <button type="button" onClick={() => handleClick(3)}>
-        Settings
-      </button>
-      <button type="button" onClick={() => handleClick(4)}>
-        Log out
-      </button>
+      <li>
+        <button type="button" onClick={() => handleClick(0)}>
+          Home
+        </button>
+      </li>
+      <li>
+        <button type="button" onClick={() => handleClick(1)}>
+          Employers
+        </button>
+      </li>
+      <li>
+        <button type="button" onClick={() => handleClick(2)}>
+          Events
+        </button>
+      </li>
+      <li>
+        <button type="button" onClick={() => handleClick(3)}>
+          Settings
+        </button>
+      </li>
+      <li>
+        <button type="button" onClick={() => handleClick(4)}>
+          Log out
+        </button>
+      </li>
     </ul>
   );
 }
@@ -38,10 +48,12 @@ class Navigation extends React.Component {
   render() {
     const checkToken = () => {
       if (document.getElementById("token")?.innerHTML === undefined) {
-        setTimeout(()=>{checkToken()},100)
+        setTimeout(() => {
+          checkToken();
+        }, 100);
       } else {
-        if(Number(document.getElementById("token")?.innerHTML) === 0){
-          window.location.href = "/"; 
+        if (Number(document.getElementById("token")?.innerHTML) === 0) {
+          window.location.href = "/";
         }
       }
     };

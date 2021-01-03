@@ -1,4 +1,4 @@
-@import './mixins.scss';
+@import "./mixins.scss";
 
 HTML {
   -webkit-touch-callout: none;
@@ -17,8 +17,8 @@ body {
   position: fixed;
   top: 0;
   left: 0;
-  min-height:100vh;
-  max-height:200vh;
+  min-height: 100vh;
+  max-height: 200vh;
   min-width: 100vw;
   max-width: 200vw;
   z-index: -1;
@@ -91,7 +91,7 @@ body {
 .icon {
   position: fixed;
   width: 70px;
-  height:auto;
+  height: auto;
   top: 0;
   left: 0;
   z-index: -1;
@@ -103,10 +103,13 @@ body {
     width: 170px;
   }
 }
-#id_container{
+#id_container {
   color: transparent;
 }
-.mess{
-  color:red;
+#idE_container {
+  color: transparent;
+}
+.mess {
+  color: red;
   font-size: 15px;
 }
