@@ -10,7 +10,7 @@ HTML {
 }
 body {
   margin: 0;
-  background-color: #1d2228;
+  background-color: $_bgColor;
 }
 
 .bg {
@@ -29,7 +29,6 @@ body {
   position: fixed;
   & > div {
     @include border;
-    background-color: #1d2228;
     opacity: 0.9;
     width: 80vw;
     height: 75vh;
