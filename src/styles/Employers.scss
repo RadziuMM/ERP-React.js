@@ -1,19 +1,40 @@
-#emp_table{
-    border: none;
-    margin: 0;
-    text-align: center;
-    width: auto;
-    height: auto;
-    transform: translate(0);
+@import "./mixins.scss";
+body {
+  background-color: $_cardColor;
+}
+.employers {
+  width: 100vw;
+}
+#emp_table {
+  margin: 0;
+  width: 100vw;
+  text-align: center;
+  display: none;
+  justify-content: center;
+  @media (min-width: 900px) {
     display: flex;
-    justify-content: center;
-    &:hover{
-        transform: none;
-        box-shadow: none;
-    }
+    transform: translate(0) scale(0.7);
+  }
+  @media (min-width: 1224px) {
+    transform: translate(0) scale(1);
+  }
+  &:hover {
+    box-shadow: none;
+  }
+}
+.device{
+  text-align: center;
+  width: 100vw;
+  display: block;
+  color: red;
+  font-size: 23px;
+  @media (min-width: 900px) {
+    display: none;
+  }
+
 }
 button:disabled,
-button[disabled]{
+button[disabled] {
   border: none;
   color: #666666;
 }

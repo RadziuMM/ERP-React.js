@@ -256,12 +256,15 @@ class Employes extends React.Component {
         });
     };
     return (
-      <div className="App">
+      <div className="employers">
         <Navigation />
         <span id="id_container">
           <ID />
         </span>
         <div id="emp_table"></div>
+        <span className="device">
+            Too small device to read that section!
+        </span>
       </div>
     );
   }
