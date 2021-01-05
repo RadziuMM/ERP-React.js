@@ -11,7 +11,7 @@ HTML {
 }
 body {
   margin: 0;
-  background-color: $_bgColor;
+  background-color: $_cardColor;
 }
 .bg {
   position: fixed;
@@ -111,4 +111,19 @@ body {
 .mess {
   color: red;
   font-size: 15px;
+}
+.device {
+  text-align: center;
+  width: 100vw;
+  display: block;
+  color: red;
+  font-size: 23px;
+  @media (min-width: 900px) {
+    display: none;
+  }
+}
+button:disabled,
+button[disabled] {
+  border: none;
+  color: #666666;
 }

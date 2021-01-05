@@ -259,12 +259,15 @@ class Events extends React.Component {
     };
     setID();
     return (
-      <div className="App">
+      <div className="eventPage">
         <Navigation />
         <span id="idE_container">
           <ID />
         </span>
         <div id="Events"></div>
+        <span className="device">
+            Too small device to read that section!
+        </span>
         <div id="ownersBlock"></div>
       </div>
     );

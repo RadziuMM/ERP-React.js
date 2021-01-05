@@ -1,0 +1,10 @@
+@import "./mixins.scss";
+.Main{
+    width: 100vw;
+    &>div{
+        text-align: center;
+        @include font;
+        font-size: 28px;
+        padding-top: 5vh;
+    }
+}

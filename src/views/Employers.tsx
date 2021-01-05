@@ -4,7 +4,6 @@ import Navigation from "../components/Navigation";
 import ID from "../app/features/actions/getID";
 import "../styles/Employers.scss";
 
-
 const axios = require("axios");
 
 class Employes extends React.Component {
@@ -262,9 +261,7 @@ class Employes extends React.Component {
           <ID />
         </span>
         <div id="emp_table"></div>
-        <span className="device">
-            Too small device to read that section!
-        </span>
+        <span className="device">Too small device to read that section!</span>
       </div>
     );
   }

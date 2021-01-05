@@ -2,7 +2,7 @@
 .Navigation {
   @include font;
   width: 100vw;
-  background-color:$_bgColor;
+  background-color: $_bgColor;
   margin: 0;
   text-align: center;
 }
@@ -34,7 +34,7 @@ ul {
         font-size: 25px;
       }
       &:hover {
-        background-color:$_cardColor;
+        background-color: $_cardColor;
         border: none;
       }
     }

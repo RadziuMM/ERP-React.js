@@ -1,7 +1,7 @@
 $_1color: #fb8122;
 $_2color: #fa9141;
 $_bgColor: #1d2228;
-$_cardColor:#272c33;
+$_cardColor: #272c33;
 
 @mixin font {
   color: $_1color;
@@ -26,7 +26,7 @@ $_cardColor:#272c33;
   border: solid 1px $_1color;
   border-radius: 5px;
   &:hover {
-    color:$_2color;
+    color: $_2color;
     border: solid 1px $_2color;
   }
 }
@@ -39,7 +39,7 @@ $_cardColor:#272c33;
   outline: none;
   cursor: pointer;
   &:hover {
-    background:$_2color;
+    background: $_2color;
     color: white;
   }
 }

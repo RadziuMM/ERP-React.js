@@ -1,25 +1,24 @@
-@mixin mute {
-    border: none;
-    margin: 0;
-    text-align: center;
-    width: auto;
-    height: auto;
-    transform: translate(0);
-    &:hover{
-        transform: none;
-        box-shadow: none;
-    }
+@import "./mixins.scss";
+
+.eventPage {
+  text-align: center;
 }
-#Events{
-    @include mute;
+#Events {
+  display: flex;
+  justify-content: center;
+  margin: 0;
+  width: 100vw;
+  text-align: center;
+  display: none;
+  justify-content: center;
+  @media (min-width: 900px) {
     display: flex;
-    justify-content: center;
-}
-#ownersBlock{
-    @include mute;
-}
-button:disabled,
-button[disabled]{
-  border: none;
-  color: #666666;
+    transform: translate(0) scale(0.85);
+  }
+  @media (min-width: 1224px) {
+    transform: translate(0) scale(1);
+  }
+  &:hover {
+    box-shadow: none;
+  }
 }

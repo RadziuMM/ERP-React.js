@@ -1,15 +1,15 @@
 import React from "react";
 import GetName from "../app/features/actions/getName";
 import Navigation from "../components/Navigation";
+import "../styles/Main.scss";
 
 class main extends React.Component {
   render() {
     const name = <GetName/>
     return (
-      <div className="App">
+      <div className="Main">
         <Navigation />
-        MainPage
-    <div>{name}</div>
+        <div>Hi {name}, welcome in your ERP panel!</div>
       </div>
     );
   }
